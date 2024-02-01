@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 
-const images = ["Slide1.webp", "Slide2.webp", "Slide3.webp", "Slide4.webp"];
+const images = ["Slide1.webp", "Slide2.webp", "Slide3.webp", "slide4.webp"];
 
 export default function PromotionalBanner() {
   const [index, setIndex] = React.useState<number>(0);
