@@ -9,11 +9,11 @@ export default function Header() {
       <div className="h-10 w-[1200px] flex items-center">
         <Logo />
         <NavBar />
-        <Search />
-        <div className="flex flex-col items-center justify-center ml-8">
+        {/* <Search /> */}
+        {/* <div className="flex flex-col items-center justify-center ml-8">
           <ShoppingBagOutlinedIcon/>
           <span className="text-[14px]">Bag</span>
-        </div>
+        </div> */}
       </div>
     </main>
   );

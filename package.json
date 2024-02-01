@@ -1,5 +1,5 @@
 {
-  "name": "myspotify",
+  "name": "furnixure",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.7",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.14",
     "clsx": "^2.1.0",
     "next": "14.1.0",
     "react": "^18",

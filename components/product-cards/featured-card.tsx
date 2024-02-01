@@ -19,8 +19,8 @@ export default function FeaturedCard({ item }: {
           width={500}
           height={500}
         />
-        <Button variant="contained" className={clsx(josefinSans.className, "hidden group-hover:block absolute bottom-2 w-[120px] h-[30px] bg-fresh-green hover:bg-fresh-green shadow-none text-xs capitalize p-2")}>View Details</Button>
-        <FavoriteBorderSharpIcon className="hidden group-hover:block absolute top-2 left-2 text-deep-blue" />
+        {/* <Button variant="contained" className={clsx(josefinSans.className, "hidden group-hover:block absolute bottom-2 w-[120px] h-[30px] bg-fresh-green hover:bg-fresh-green shadow-none text-xs capitalize p-2")}>View Details</Button> */}
+        {/* <FavoriteBorderSharpIcon className="hidden group-hover:block absolute top-2 left-2 text-deep-blue" /> */}
       </div>
       <div className="flex flex-col items-center p-1 gap-1 bg-white">
         <span className="text-custom-pink font-bold text-[16px]">{item.name}</span>
