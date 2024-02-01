@@ -24,7 +24,7 @@ export default function PromotionalBanner() {
 
 
   return (
-    <div className="h-[576px] xl:h-[700px] relative">
+    <div className="h-[576px] relative">
       <Image
         src={`/${images[index]}`}
         alt="Slide"

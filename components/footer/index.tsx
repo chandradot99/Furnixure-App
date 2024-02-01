@@ -22,7 +22,7 @@ export default function Footer() {
             },
             endAdornment: (
               <InputAdornment position="end" className='flex items-center justify-center z-10 w-[135px] h-[39px] max-h-[39px] ml-0 text-custom-pink'>
-                <Button variant="contained" className="w-[135px] h-[39px] mr-1 bg-custom-pink shadow-none">Sign Up</Button>
+                <Button variant="contained" className="w-[135px] h-[39px] bg-custom-pink shadow-none">Sign Up</Button>
               </InputAdornment>
             ),
           }}
