@@ -1,112 +1,322 @@
+import { CashbackIcon, FreeDeliveryIcon, HoursSupportIcon, PremiumQualityIcon } from "@/components/icons";
+import BlogCard from "@/components/product-cards/blog-card";
+import FeaturedCard from "@/components/product-cards/featured-card";
+import RecentCard from "@/components/product-cards/recent-card";
+import { TrendingCard, TrendingMiniCard } from "@/components/product-cards/trending-card";
+import BottomPromotionalBanner from "@/components/promotional-banner/bottom-banner";
+import PromotionalBanner from "@/components/promotional-banner/top-banner";
+import { josefinSans } from "@/lib/fonts";
+import { BlogItem } from "@/lib/types/blog-item";
+import { ProductItem } from "@/lib/types/product-item";
+import Button from "@mui/material/Button";
+import clsx from "clsx";
 import Image from "next/image";
+
+const products: ProductItem[] = [
+  {
+    id: "1",
+    code: "Y523201",
+    name: "Cantilever chair",
+    imageUrl: "https://i.ibb.co/DbK1TSx/chair1.png",
+    price: 42
+  },
+  {
+    id: "2",
+    code: "Y523202",
+    name: "Vel elit euismod",
+    imageUrl: "https://i.ibb.co/qxNTBDd/chair2.png",
+    price: 50
+  },
+  {
+    id: "3",
+    code: "Y523203",
+    name: "Ultricies condimentum",
+    imageUrl: "https://i.ibb.co/bBBqzpY/chair3.png",
+    price: 46
+  },
+  {
+    id: "4",
+    code: "Y523204",
+    name: "Vitae suspendisse",
+    imageUrl: "https://i.ibb.co/rGQyyyv/chair4.png",
+    price: 39
+  },
+  {
+    id: "5",
+    code: "Y523205",
+    name: "Sed at fermentum",
+    imageUrl: "https://i.ibb.co/vYV81Gg/7877d7223d13169b98bd9540d24d5673.png",
+    price: 42
+  },
+  {
+    id: "6",
+    code: "Y523206",
+    name: "Vestibulum magna",
+    imageUrl: "https://i.ibb.co/jwfsKZs/40fb6d72006bc9fe7a747b3dfca0a5de.png",
+    price: 50
+  },
+  {
+    id: "7",
+    code: "Y523207",
+    name: "Sollicitudin amet",
+    imageUrl: "https://i.ibb.co/J7v9fYw/6002c578779f313538a8a68e1a6f8050.png",
+    price: 46
+  },
+  {
+    id: "8",
+    code: "Y523208",
+    name: "Ultrices mauris sit",
+    imageUrl: "https://i.ibb.co/zrJY8SC/03270716b886324ea4b54a2320807d8b.png",
+    price: 39
+  }
+]
+
+const latestProducts: ProductItem[] = [
+  {
+    id: "1",
+    code: "Y523201",
+    name: "Comfort Handy Craft",
+    imageUrl: "https://i.ibb.co/ScfKbzY/product-6.png",
+    price: 42
+  },
+  {
+    id: "2",
+    code: "Y523202",
+    name: "Comfort Handy Craft",
+    imageUrl: "https://i.ibb.co/vYV81Gg/7877d7223d13169b98bd9540d24d5673.png",
+    price: 50
+  },
+  {
+    id: "3",
+    code: "Y523203",
+    name: "Comfort Handy Craft",
+    imageUrl: "https://i.ibb.co/DbK1TSx/chair1.png",
+    price: 46
+  },
+  {
+    id: "4",
+    code: "Y523204",
+    name: "Comfort Handy Craft",
+    imageUrl: "https://i.ibb.co/rGQyyyv/chair4.png",
+    price: 39
+  },
+  {
+    id: "4",
+    code: "Y523204",
+    name: "Comfort Handy Craft",
+    imageUrl: "https://i.ibb.co/DbzyxTz/product-3.png",
+    price: 39
+  },
+  {
+    id: "4",
+    code: "Y523204",
+    name: "Comfort Handy Craft",
+    imageUrl: "https://i.ibb.co/G3Gct9P/product-2.png",
+    price: 39
+  }
+]
+
+const trendingProducts: ProductItem[] = [
+  {
+    id: "3",
+    code: "Y523203",
+    name: "Ultricies condimentum",
+    imageUrl: "https://i.ibb.co/bBBqzpY/chair3.png",
+    price: 46
+  },
+  {
+    id: "4",
+    code: "Y523204",
+    name: "Vitae suspendisse",
+    imageUrl: "https://i.ibb.co/rGQyyyv/chair4.png",
+    price: 39
+  },
+  {
+    id: "5",
+    code: "Y523205",
+    name: "Sed at fermentum",
+    imageUrl: "https://i.ibb.co/vYV81Gg/7877d7223d13169b98bd9540d24d5673.png",
+    price: 42
+  },
+  {
+    id: "6",
+    code: "Y523206",
+    name: "Vestibulum magna",
+    imageUrl: "https://i.ibb.co/jwfsKZs/40fb6d72006bc9fe7a747b3dfca0a5de.png",
+    price: 50
+  }
+]
+
+const trendingMiniProducts: ProductItem[] = [
+  {
+    id: "3",
+    code: "Y523203",
+    name: "Ultricies condimentum",
+    imageUrl: "https://i.ibb.co/bBBqzpY/chair3.png",
+    price: 46
+  },
+  {
+    id: "4",
+    code: "Y523204",
+    name: "Vitae suspendisse",
+    imageUrl: "https://i.ibb.co/rGQyyyv/chair4.png",
+    price: 39
+  },
+  {
+    id: "6",
+    code: "Y523206",
+    name: "Vestibulum magna",
+    imageUrl: "https://i.ibb.co/jwfsKZs/40fb6d72006bc9fe7a747b3dfca0a5de.png",
+    price: 50
+  }
+]
+
+const blogs: BlogItem[] = [{
+  id: 1,
+  name: "Top esssential Trends in 2021",
+  description: "More off this less hello samlande lied much over tightly circa horse taped mightly",
+  author: "SaberAli",
+  date: "21 December,2023",
+  image: "/blog1.jpeg"
+},
+{
+  id: 1,
+  name: "Top esssential Trends in 2021",
+  description: "More off this less hello samlande lied much over tightly circa horse taped mightly",
+  author: "Surfauxion",
+  date: "21 January,2024",
+  image: "/blog2.jpeg"
+},
+{
+  id: 1,
+  name: "Top esssential Trends in 2021",
+  description: "More off this less hello samlande lied much over tightly circa horse taped mightly",
+  author: "Chandra",
+  date: "31 January,2024",
+  image: "/blog3.jpeg"
+}];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <PromotionalBanner />
+      <div  className="w-[1100px] m-auto mt-[80px]">
+        <div className={clsx(josefinSans.className, "text-center text-[36px] font-bold")}>Featured Products</div>
+        <div className="mt-6 grid grid-cols-4 gap-8 justify-center">
+          {
+            products.map((product) => {
+              return <FeaturedCard key={product.id} item={product}/>
+            })
+          }
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div  className="w-[1100px] m-auto mt-[80px]">
+        <div className={clsx(josefinSans.className, "text-center text-[36px] font-bold")}>Latest Products</div>
+        <div className="mt-6 grid grid-cols-3 gap-8 justify-center">
+          {
+            latestProducts.map((product) => {
+              return <RecentCard key={product.id} item={product}/>
+            })
+          }
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+      <div  className="w-[1100px] m-auto mt-[80px]">
+        <div className={clsx(josefinSans.className, "text-center text-[36px] font-bold")}>What Furnixure Offer</div>
+        <div className="mt-6 grid grid-cols-4 gap-8 justify-center">
+          <div className="w-[250px] h-[300px] p-6 bg-white shadow-secondary flex flex-col gap-4 items-center justify-center">
+            <FreeDeliveryIcon />
+            <span className={clsx(josefinSans.className, "text-[22px] font-semibold text-deep-blue")}>Free Delivery</span>
+            <span  className="text-muted-indigo font-bold">
+              Enjoy hassle-free shopping with our complimentary delivery service.
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+          </div>
+          <div className="w-[250px] h-[300px] p-6 bg-white shadow-secondary flex flex-col gap-4 items-center justify-center">
+            <CashbackIcon />
+            <span className={clsx(josefinSans.className, "text-[22px] font-semibold text-deep-blue")}>Easy Returns</span>
+            <span  className="text-muted-indigo font-bold">
+              Shop with confidence knowing that we offer easy returns and refunds.
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+          </div>
+          <div className="w-[250px] h-[300px] p-6 bg-white shadow-secondary flex flex-col gap-4 items-center justify-center">
+            <PremiumQualityIcon />
+            <span className={clsx(josefinSans.className, "text-[22px] font-semibold text-deep-blue")}>Premium Quality</span>
+            <span  className="text-muted-indigo font-bold">
+              Indulge in premium quality products crafted with care and attention to detail.
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+          </div>
+          <div className="w-[250px] h-[300px] p-6 bg-white shadow-secondary flex flex-col gap-4 items-center justify-center">
+            <HoursSupportIcon />
+            <span className={clsx(josefinSans.className, "text-[22px] font-semibold text-deep-blue")}>24/7 Support</span>
+            <span  className="text-muted-indigo font-bold">
+              Rest easy knowing our dedicated support team is available 24/7 to assist you.
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          </div>
+        </div>
+      </div>
+      <BottomPromotionalBanner />
+      <div  className="w-[1100px] m-auto mt-[80px]">
+        <div className={clsx(josefinSans.className, "text-center text-[36px] font-bold")}>Trending Products</div>
+        <div className="mt-6 grid grid-cols-4 gap-8 justify-center">
+          {
+            trendingProducts.map((product) => {
+              return <TrendingCard key={product.id} item={product}/>
+            })
+          }
+        </div>
+        <div className="flex mt-10 justify-between">
+          <div className="w-[400px] h-[240px] bg-custom-lighter shadow-secondary p-8 relative">
+            <span className={clsx(josefinSans.className, "text-deep-blue text-[24px] font-semibold block")}>23% off in all products</span>
+            <span className="text-custom-pink underline block z-10 cursor-pointer relative">Shop Now</span>
+            <Image
+              src="/clock.png"
+              alt="Product Image"
+              className="w-[213] h-[207] absolute bottom-[-10px] right-[-10px]"
+              width={213}
+              height={207}
+            />
+          </div>
+          <div className="w-[400px] h-[240px] bg-custom-lighter shadow-secondary p-8 relative">
+            <span className={clsx(josefinSans.className, "text-deep-blue text-[24px] font-semibold block")}>23% off in all products</span>
+            <span className="text-custom-pink underline z-10 cursor-pointer block relative">View Collection</span>
+            <Image
+              src="/tv-unit.png"
+              alt="Product Image"
+              className="w-[312px] absolute bottom-[-40px] right-[-24px]"
+              width={312}
+              height={173}
+            />
+          </div>
+          <div className="w-[270px] h-[240px] flex flex-col justify-between">
+            {
+              trendingMiniProducts.map((product) => {
+                return <TrendingMiniCard key={product.id} item={product}/>
+              })
+            }
+          </div>
+        </div>
+      </div>
+      <div className="mt-[80px] w-full h-[462px] relative">
+        <Image
+          src="/newslater-bg.jpeg"
+          alt="Newslater background"
+          className="w-full h-full object-cover"
+          width={2560}
+          height={3840}
+        />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
+          <span className={clsx(josefinSans.className, "text-center text-deep-blue text-[35px] font-semibold block")}>Get Leatest Update By Subscribe <br /> 0ur Newsletter</span>
+          <Button variant="contained" className="mt-7 w-[173px] h-[49px] bg-custom-pink hover:bg-custom-pink shadow-none capitalize">Shop Now</Button>
+        </div>
+      </div>
+      <div  className="w-[1100px] m-auto mt-[80px]">
+        <div className={clsx(josefinSans.className, "text-center text-[36px] font-bold")}>Latest Blog</div>
+        <div className="mt-6 grid grid-cols-3 gap-8">
+          {
+            blogs.map((blog) => {
+              return <BlogCard key={blog.id} item={blog} />
+            })
+          }
+        </div>
       </div>
     </main>
   );
